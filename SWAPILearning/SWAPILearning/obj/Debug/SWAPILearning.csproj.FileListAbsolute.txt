@@ -1,0 +1,17 @@
+D:\Workspace\Code\SolidworksCode\SWAPILearning\SWAPILearning\bin\Debug\SWAPILearning.exe.config
+D:\Workspace\Code\SolidworksCode\SWAPILearning\SWAPILearning\bin\Debug\SWAPILearning.exe
+D:\Workspace\Code\SolidworksCode\SWAPILearning\SWAPILearning\bin\Debug\SWAPILearning.pdb
+D:\Workspace\Code\SolidworksCode\SWAPILearning\SWAPILearning\bin\Debug\SolidWorks.Interop.sldworks.dll
+D:\Workspace\Code\SolidworksCode\SWAPILearning\SWAPILearning\bin\Debug\SolidWorks.Interop.swconst.dll
+D:\Workspace\Code\SolidworksCode\SWAPILearning\SWAPILearning\bin\Debug\SolidWorks.Interop.swpublished.dll
+D:\Workspace\Code\SolidworksCode\SWAPILearning\SWAPILearning\bin\Debug\Xarial.XCad.dll
+D:\Workspace\Code\SolidworksCode\SWAPILearning\SWAPILearning\bin\Debug\Xarial.XCad.SolidWorks.dll
+D:\Workspace\Code\SolidworksCode\SWAPILearning\SWAPILearning\bin\Debug\Xarial.XCad.Toolkit.dll
+D:\Workspace\Code\SolidworksCode\SWAPILearning\SWAPILearning\bin\Debug\Xarial.XCad.xml
+D:\Workspace\Code\SolidworksCode\SWAPILearning\SWAPILearning\bin\Debug\Xarial.XCad.SolidWorks.xml
+D:\Workspace\Code\SolidworksCode\SWAPILearning\SWAPILearning\bin\Debug\Xarial.XCad.Toolkit.xml
+D:\Workspace\Code\SolidworksCode\SWAPILearning\SWAPILearning\obj\Debug\SWAPILearning.csproj.AssemblyReference.cache
+D:\Workspace\Code\SolidworksCode\SWAPILearning\SWAPILearning\obj\Debug\SWAPILearning.csproj.CoreCompileInputs.cache
+D:\Workspace\Code\SolidworksCode\SWAPILearning\SWAPILearning\obj\Debug\SWAPILearning.csproj.CopyComplete
+D:\Workspace\Code\SolidworksCode\SWAPILearning\SWAPILearning\obj\Debug\SWAPILearning.exe
+D:\Workspace\Code\SolidworksCode\SWAPILearning\SWAPILearning\obj\Debug\SWAPILearning.pdb

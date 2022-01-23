@@ -1,0 +1,54 @@
+﻿<Window x:Class="SwGUICode.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SwGUICode"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="400">
+    <StackPanel>
+        <GroupBox Header="Connect To Solidworks" FontSize="10" BorderBrush="Black">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Height="40" Margin="10" Click="ConnectToSw">
+                    <TextBlock Text="connect to Sw" FontSize="23"></TextBlock>
+                </Button>
+                <TextBox x:Name="msgbox" Grid.Column="1" TextWrapping="WrapWithOverflow" FontSize="20"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox>
+            <TabControl>
+                <TabItem Header="A New Document" FontSize="15" BorderBrush="Black">
+                    <StackPanel>
+                        <Button Margin="10" Width="250" Height="40" Click="ClickForPart">
+                            <TextBlock Text="A new part" FontSize="20"/>
+                        </Button>
+                        <Button Margin="10" Width="250" Height="40" Click="ClickForAssembly">
+                            <TextBlock Text="A new AssemblyDoc" FontSize="20"/>
+                        </Button>
+                        <Button Margin="10" Width="250" Height="40" Click="ClickForDrawing">
+                            <TextBlock Text="A new DrawingDoc" FontSize="20"/>
+                        </Button>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="SomethingOK" FontSize="15" BorderBrush="Black">
+                    <StackPanel>
+                        <Button Margin="10" Width="250" Height="40" Click="OpenFile">
+                            <TextBlock Text="Open the File" FontSize="20"/>
+                        </Button>
+                        <Button Margin="10" Width="250" Height="40" Click="TraverseFeatureClick">
+                            <TextBlock Text="Traverse The Feature" FontSize="20"/>
+                        </Button>
+                        <Button Margin="10" Width="250" Height="40" Click="GetSelectionClick">
+                            <TextBlock Text="Look for selection" FontSize="20"/>
+                        </Button>
+                        <ListBox Height="100" Margin="5" x:Name="SelctionBox"/>
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+        </GroupBox>
+    </StackPanel>
+</Window>
