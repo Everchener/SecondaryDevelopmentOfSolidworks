@@ -1,2 +1,2 @@
 # SecondaryDevelopmentOfSolidworks
-大创项目关于六自由度机械臂的Solidworks的插件开发，优化六自由度机械臂结构
+大创项目关于六自由度机械臂的Solidworks的插件开发，优化六自由度机械臂结构项目代码集
