@@ -66,7 +66,7 @@ namespace SwGUICode {
             var doc = swApp.Sw.INewDocument2(swTemplate, 0, 400, 600);
         }
         //打开文件可以用swApp.Sw.OpenDoc7()方法进行打开，不过想实现打开选定路径文档还是得摸索
-        //看看能不能用msgbox接收文件路径如何作为参数传递达成打开特定路径文档
+        //看看能不能用msgbox接收文件路径如何作为参数传递达成打开特定路径文档(已实现)
 
         //打开文件
         private void OpenFile(object sender, RoutedEventArgs e) {
@@ -109,7 +109,7 @@ namespace SwGUICode {
         }
 
         // 遍历特征
-        public static void TraverseFeatures(Feature thisFeat, bool isTopLevel, bool isShowDimension = false) {
+        public static void TraverseFeatures(Feature thisFeat, bool isTopLevel, bool isShowDimension = true) {
             Feature curFeat = default(Feature);
             curFeat = thisFeat;
 
@@ -169,7 +169,7 @@ namespace SwGUICode {
                 var dimen = (Dimension)thisDisplayDim.GetDimension();
 
                 Debug.Print($"---特征 {feature.Name} 尺寸-->" + dimen.GetNameForSelection() + "-->" + dimen.Value);
-
+                dimen.Value++;
                 thisDisplayDim = (DisplayDimension)feature.GetNextDisplayDimension(thisDisplayDim);
             }
         }
@@ -202,9 +202,14 @@ namespace SwGUICode {
             for (int i = 1; i <= seleCount; i++) {
                 var seleMark = seleMgr.GetSelectedObjectMark(i);
                 var seleType = seleMgr.GetSelectedObjectType3(i, seleMark);
+                if (seleType != 9) {
+                    msgbox.Text = $"你选择的不是草图，无法获取尺寸：{seleType}";
+                    continue;
+                }
                 var seleObj = (Feature)seleMgr.GetSelectedObject6(i, seleMark);
                 var selePosition = seleMgr.GetSelectionPoint2(i, seleMark) as double[];
-                //很神奇的一点是这个只能获取点线面而不能获取长度这样的抽象选择
+                //很神奇的一点是这个只能获取点线面而不能获取长度这样的抽象选择(已解决)
+                //msgbox.Text = $"{seleType}";//测试seleType对应数字
                 ShowDimensionForFeature(seleObj);//这样就可以获取特征了
                 //var info = $"Index:{i},Mark:{seleMark},Type:{(swSelectType_e)seleType},Position:{selePosition[0]}{selePosition[1]}{selePosition[2]} ";
                 //data.Add(info);

@@ -1,0 +1,229 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Xarial.XCad.Toolkit</name>
+    </assembly>
+    <members>
+        <member name="T:Xarial.XCad.Utils.Diagnostics.TraceLogger">
+            <summary>
+            Logger logs messages to trace window
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Xarial.XCad.Utils.PageBuilder.Base.Attributes.IDefaultTypeAttribute" -->
+        <member name="P:Xarial.XCad.Utils.PageBuilder.Base.Attributes.IDefaultTypeAttribute.Type">
+            <summary>
+            Specifies the type of the data which this constructor creates control for
+            </summary>
+        </member>
+        <member name="F:Xarial.XCad.Utils.PageBuilder.Internal.ConstructorsContainer`2.m_DefaultConstructors">
+            <summary>
+            Constructors for the default data types (i.e. int, double, bool etc.)
+            </summary>
+        </member>
+        <member name="F:Xarial.XCad.Utils.PageBuilder.Internal.ConstructorsContainer`2.m_SpecialTypeConstructors">
+            <summary>
+            Constructors for the special types (i.e. complex, enums, etc.)
+            </summary>
+        </member>
+        <member name="F:Xarial.XCad.Utils.PageBuilder.Internal.ConstructorsContainer`2.m_SpecificConstructors">
+            <summary>
+            Specific constructor for specific data types
+            </summary>
+        </member>
+        <member name="M:Xarial.XCad.Utils.Reflection.AssemblyExtension.TryGetAttribute``1(System.Reflection.Assembly,System.Action{``0})">
+            <summary>
+            Tries to get attribute from the assembly
+            </summary>
+            <typeparam name="TAtt">Type of attribute to get</typeparam>
+            <param name="assm">Assembly</param>
+            <param name="attProc">Action to process attribute</param>
+            <returns>True if attribute exists</returns>
+        </member>
+        <member name="T:Xarial.XCad.Utils.Reflection.EnumExtension">
+            <summary>
+            Provides extension classes for the <see cref="T:System.Enum"/> enumerator
+            </summary>
+        </member>
+        <member name="M:Xarial.XCad.Utils.Reflection.EnumExtension.GetAttribute``1(System.Enum)">
+            <summary>
+            Get the specified attribute from the enumerator field
+            </summary>
+            <typeparam name="TAtt">Attribute type</typeparam>
+            <param name="enumer">Enumerator field</param>
+            <returns>Attribute</returns>
+            <exception cref="T:System.NullReferenceException"/>
+            <remarks>This method throws an exception if attribute is missing</remarks>
+        </member>
+        <member name="M:Xarial.XCad.Utils.Reflection.EnumExtension.TryGetAttribute``1(System.Enum)">
+            <summary>
+            Attempts to the attribute from enumeration
+            </summary>
+            <typeparam name="TAtt">Type of the attribute</typeparam>
+            <param name="type">Type to get attribute from</param>
+            <returns>Attribute or null if not found</returns>
+        </member>
+        <member name="T:Xarial.XCad.Utils.Reflection.MemberInfoExtension">
+            <summary>
+            Provides extension methods for the <see cref="T:System.Reflection.MemberInfo"/>
+            </summary>
+        </member>
+        <member name="M:Xarial.XCad.Utils.Reflection.MemberInfoExtension.TryGetAttribute``1(System.Reflection.MemberInfo)">
+            <summary>
+            Attempts to get the attribute from the class member
+            </summary>
+            <typeparam name="TAtt">Attribute type</typeparam>
+            <param name="membInfo">Pointer to member (field or property)</param>
+            <returns>Pointer to attribute or null if not found</returns>
+        </member>
+        <member name="T:Xarial.XCad.Utils.Reflection.TypeExtension">
+            <summary>
+            Provides the extension methods for <see cref="T:System.Type"/>
+            </summary>
+        </member>
+        <member name="M:Xarial.XCad.Utils.Reflection.TypeExtension.GetAttribute``1(System.Type)">
+            <summary>
+            Get the specified attribute from the type, all parent types and interfaces
+            </summary>
+            <typeparam name="TAtt">Attribute type</typeparam>
+            <param name="type">Type</param>
+            <returns>Attribute</returns>
+            <exception cref="T:System.NullReferenceException"/>
+            <remarks>This method throws an exception if attribute is missing</remarks>
+        </member>
+        <member name="M:Xarial.XCad.Utils.Reflection.TypeExtension.TryGetAttribute``1(System.Type)">
+            <summary>
+            Attempts to the attribute from type, all parent types and interfaces
+            </summary>
+            <typeparam name="TAtt">Type of the attribute</typeparam>
+            <param name="type">Type to get attribute from</param>
+            <returns>Attribute or null if not found</returns>
+        </member>
+        <member name="M:Xarial.XCad.Utils.Reflection.TypeExtension.TryGetAttribute``1(System.Type,``0@)">
+            <summary>
+            Attempts to get the attribute from the type, all parent types and interfaces
+            </summary>
+            <typeparam name="TAtt">Type of the attribute</typeparam>
+            <param name="type">Type to get attribute from</param>
+            <param name="att">Attribute of the type</param>
+            <returns>True if attribute exists</returns>
+        </member>
+        <member name="M:Xarial.XCad.Utils.Reflection.TypeExtension.IsAssignableToGenericType(System.Type,System.Type)">
+            <summary>
+            Checks if this type can be assigned to the generic type
+            </summary>
+            <param name="thisType">Type</param>
+            <param name="genericType">Base generic type (i.e. MyGenericType&lt;&gt;)</param>
+            <returns>True if type is assignable to generic</returns>
+        </member>
+        <member name="M:Xarial.XCad.Utils.Reflection.TypeExtension.GetArgumentsOfGenericType(System.Type,System.Type)">
+            <summary>
+            Gets the specific arguments of this type in relation to specified generic type
+            </summary>
+            <param name="thisType">This type which must be assignable to the specified genericType</param>
+            <param name="genericType">Generic type</param>
+            <returns>Arguments</returns>
+            <remarks>For example this method called on List&lt;string&gt; where the genericType is IEnumerable&lt;&gt; would return string</remarks>
+        </member>
+        <member name="M:Xarial.XCad.Utils.Reflection.TypeExtension.TryFindGenericType(System.Type,System.Type)">
+            <summary>
+            Finds the specific generic type to a specified base generic type
+            </summary>
+            <param name="thisType">This type</param>
+            <param name="genericType">Base generic type</param>
+            <returns>Specific generic type or null if not found</returns>
+        </member>
+        <member name="M:Xarial.XCad.Utils.Reflection.TypeExtension.GetProgId(System.Type)">
+            <summary>
+            Returns the COM ProgId of a type
+            </summary>
+            <param name="type">Input type</param>
+            <returns>COM Prog id</returns>
+        </member>
+        <member name="M:Xarial.XCad.Utils.Reflection.TypeExtension.IsComVisible(System.Type)">
+            <summary>
+            Identifies if type is COM visible
+            </summary>
+            <param name="type">Type to check</param>
+            <returns>True if type is COM visible</returns>
+        </member>
+        <member name="T:Xarial.XCad.Toolkit.Data.ComStorage">
+            <summary>
+            Represents the implementation of Storage in .NET
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.Toolkit.Data.ComStream">
+            <summary>
+            Represents the COM stream wrapper
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.Toolkit.Data.TagsManager">
+            <summary>
+            Manages tags
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.Toolkit.Exceptions.CommittedElementPropertyChangeNotSupported">
+            <summary>
+            Exception indicates that proeprty of the <see cref="T:Xarial.XCad.Base.IXTransaction"/> cannot be modified after the transaction is committed
+            </summary>
+        </member>
+        <member name="M:Xarial.XCad.Toolkit.Exceptions.CommittedElementPropertyChangeNotSupported.#ctor(System.String)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.Toolkit.PageBuilder.Binders.ControlDescriptorWrapper">
+            <summary>
+            Wrapper is used to transform context of the dynamic control to be equal to property value resolved in runtime
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.Toolkit.Services.DocumentsHandler">
+            <summary>
+            Handles documents lifecycle
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.Toolkit.Services.EventsHandler`1">
+            <summary>
+            Utility allowing to implement lazy event handlers for a wrapped events
+            </summary>
+            <typeparam name="TDel">Delegate type of the wrapped event</typeparam>
+            <remarks>Use this approach when handling of events might result in the performance penalties or other issues
+            so it is only required to subscribe to events when underlying users are subscribed</remarks>
+        </member>
+        <member name="T:Xarial.XCad.Toolkit.Utils.ColorUtils">
+            <summary>
+            Utility to convert between the .NET Color and Win32 color
+            </summary>
+        </member>
+        <member name="M:Xarial.XCad.Toolkit.Utils.ColorUtils.ToColorRef(System.Drawing.Color)">
+            <summary>
+            Creates a Win32 color
+            </summary>
+            <param name="color">Input color</param>
+            <returns>Wind32 color</returns>
+        </member>
+        <member name="M:Xarial.XCad.Toolkit.Utils.ColorUtils.FromColorRef(System.Int32)">
+            <summary>
+            Converts Win32 color to .NET color
+            </summary>
+            <param name="colorRef">Input color</param>
+            <returns>Converted color</returns>
+        </member>
+        <member name="T:Xarial.XCad.Exceptions.FutureVersionParametersException">
+            <summary>
+            Exception indicates that the version of the parameters of macro feature
+            belongs of a never version of the add-in
+            </summary>
+            <remarks>Suggest users to upgrade the add-in version to support the feature</remarks>
+        </member>
+        <member name="T:Xarial.XCad.Exceptions.ParametersMismatchException">
+            <summary>
+            Exception indicates that the macro feature parameters have not been updated via <see cref="!:Services.IParametersVersionConverter"/>
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.Services.CachedProperties">
+            <summary>
+            Manages cached properties of <see cref="T:Xarial.XCad.Base.IXTransaction"/>
+            </summary>
+        </member>
+    </members>
+</doc>

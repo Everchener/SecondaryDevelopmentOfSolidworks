@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolidworksProgram", "SolidworksProgram\SolidworksProgram.csproj", "{9177D5A3-A2CA-4554-B5B9-A2DC9947A68F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwGUICode", "..\SwGUICode\SwGUICode\SwGUICode.csproj", "{07BD3213-8138-4C48-B23D-41BCD610C94E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9177D5A3-A2CA-4554-B5B9-A2DC9947A68F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9177D5A3-A2CA-4554-B5B9-A2DC9947A68F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9177D5A3-A2CA-4554-B5B9-A2DC9947A68F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9177D5A3-A2CA-4554-B5B9-A2DC9947A68F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07BD3213-8138-4C48-B23D-41BCD610C94E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07BD3213-8138-4C48-B23D-41BCD610C94E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07BD3213-8138-4C48-B23D-41BCD610C94E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07BD3213-8138-4C48-B23D-41BCD610C94E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DD74AF5C-80AB-4260-AF87-7A9DEDBB1D13}
+	EndGlobalSection
+EndGlobal
