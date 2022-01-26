@@ -69,7 +69,6 @@ namespace SolidworksProgram {
             Feature curFeat = default(Feature);
             curFeat = thisFeat;
 
-            bool isFeature = false;
             while ((curFeat != null)) {
                 Feature nextFeat = default(Feature);
                 if (isTopLevel) {
@@ -121,10 +120,9 @@ namespace SolidworksProgram {
         }
 
         int armCount = 0;
-        //智能（个🔨）获取机械臂该更改的长度
+        //智能（个🔨）获取机械臂该更改的长度并返回到source对象中
         public void ShowDimensionForFeature(Feature feature, armSource source) {
             var thisDisplayDim = (DisplayDimension)feature.GetFirstDisplayDimension();
-            double maxValue = 0;
             while (thisDisplayDim != null) {
                 var dimen = (Dimension)thisDisplayDim.GetDimension();
                 if (!Regex.IsMatch(dimen.GetNameForSelection(), "Sketch")) {
@@ -142,6 +140,7 @@ namespace SolidworksProgram {
         }
 
         List<armSource> armSources = new List<armSource>();
+        double maxValue = 0;
 
         //获取用户选择
         private void GetSelectionClick(object sender, EventArgs e) {
@@ -183,9 +182,11 @@ namespace SolidworksProgram {
                     armSources.Add(source);
                     armCount++;
                     SelctionBox.Items.Add(source.ToString());
+                    maxValue = 0;
                 }
             }
         }
+
 
         bool isPartDoc;
         private void ChoosePartDoc(object sender, RoutedEventArgs e) {
