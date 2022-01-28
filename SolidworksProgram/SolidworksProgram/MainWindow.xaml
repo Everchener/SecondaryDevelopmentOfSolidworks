@@ -16,7 +16,7 @@
                 <Button Height="40" Margin="10" Click="ConnectToSw">
                     <TextBlock Text="连接Solidworks" FontSize="20"></TextBlock>
                 </Button>
-                <TextBox x:Name="msgbox" Grid.Column="1" TextWrapping="WrapWithOverflow" FontSize="20"/>
+                <TextBox x:Name="msgbox" Grid.Column="1" TextWrapping="WrapWithOverflow" FontSize="15"/>
             </Grid>
         </GroupBox>
         <GroupBox>
@@ -31,11 +31,20 @@
                             <RadioButton Content="选择零件" Grid.Column="0" IsChecked="True" Checked="ChoosePartDoc"/>
                             <RadioButton Content="选择尺寸" Grid.Column="1" Checked="ChooseDimension"/>
                         </Grid>
-                        
                         <Button Margin="10" Width="250" Height="40" Click="GetSelectionClick">
                             <TextBlock Text="查看选择所对应数值" FontSize="20"/>
                         </Button>
                         <ListBox Height="100" Margin="5" x:Name="SelctionBox"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0" Content="确定" Height="40" Margin="5" FontSize="20" Click="ComfirmClick"/>
+                            <Button Grid.Column="1" Content="清空" Height="40" Margin="5" FontSize="20" Click="EmptyClick"/>
+                            <Button Grid.Column="2" Content="更正误差" Height="40" Margin="5" FontSize="20" Click="CorrectClick"/>
+                        </Grid>
                     </StackPanel>
                 </TabItem>
             </TabControl>

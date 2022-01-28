@@ -30,6 +30,7 @@ namespace SolidworksProgram {
         }
         private ISwApplication swApp;
 
+        //连接sw
         private void ConnectToSw(object sender, RoutedEventArgs e) {
             var swProcess = Process.GetProcessesByName("SLDWORKS");
             if (!swProcess.Any()) {
@@ -63,7 +64,6 @@ namespace SolidworksProgram {
             //对于方法的理解还得多翻API帮助文档
         }
 
-
         // 遍历特征
         public void TraverseFeatures(Feature thisFeat, bool isTopLevel, armSource source) {
             Feature curFeat = default(Feature);
@@ -77,8 +77,8 @@ namespace SolidworksProgram {
                     nextFeat = null;
                 }
 
-                //输出特征名称
-                Debug.Print(curFeat.Name);
+                //输出特征名称(调试用)
+                //Debug.Print(curFeat.Name);
 
                 //输出可编辑尺寸
                 ShowDimensionForFeature(curFeat, source);
@@ -108,11 +108,12 @@ namespace SolidworksProgram {
             public double armValue;
             public string featureName;
             public string armName;
+            public double optArmValue = 0;
             public armSource() { }
             public armSource(double armValue, string featureName, string armName) {
-                armValue = this.armValue;
-                featureName = this.featureName;
-                armName = this.armName;
+                this.armValue = armValue;
+                this.featureName = featureName;
+                this.armName = armName;
             }
             public override string ToString() {
                 return $"---特征 {featureName} 尺寸-->" + armName + "-->" + armValue;
@@ -120,7 +121,7 @@ namespace SolidworksProgram {
         }
 
         int armCount = 0;
-        //智能（个🔨）获取机械臂该更改的长度并返回到source对象中
+        //智能（本质取最大值）获取机械臂该更改的长度并返回到source对象中
         public void ShowDimensionForFeature(Feature feature, armSource source) {
             var thisDisplayDim = (DisplayDimension)feature.GetFirstDisplayDimension();
             while (thisDisplayDim != null) {
@@ -133,6 +134,7 @@ namespace SolidworksProgram {
                     source.featureName = feature.Name;
                     source.armName = dimen.GetNameForSelection();
                     source.armValue = maxValue;
+                    maxDimension = dimen;
                 }
                 //Debug.Print($"---特征 {feature.Name} 尺寸-->" + dimen.GetNameForSelection() + "-->" + dimen.Value);
                 thisDisplayDim = (DisplayDimension)feature.GetNextDisplayDimension(thisDisplayDim);
@@ -141,9 +143,12 @@ namespace SolidworksProgram {
 
         List<armSource> armSources = new List<armSource>();
         double maxValue = 0;
+        Dimension maxDimension = null;
 
+        List<Dimension> dimenAddr = new List<Dimension>();
         //获取用户选择
         private void GetSelectionClick(object sender, EventArgs e) {
+            msgbox.Text = "正在获取请稍等";
             if (swApp == null) {
                 msgbox.Text = "还未连接SW";
                 return;
@@ -162,7 +167,7 @@ namespace SolidworksProgram {
             if (seleCount < 1) {
                 msgbox.Text = "当前没有选择任何东西";
                 return;
-            } 
+            }
             if (isPartDoc) {
                 for (int i = 1; i <= seleCount; i++) {
                     if (armCount >= 3) {
@@ -178,15 +183,41 @@ namespace SolidworksProgram {
                     armSource source = new armSource();
                     var seleObj = (IComponent2)seleMgr.GetSelectedObjectsComponent4(i, seleMark);
                     var seleObjFeature = seleObj.FirstFeature();
+                    //Debug.Print(seleObj.GetID().ToString());
                     TraverseFeatures(seleObjFeature, true, source);
+                    dimenAddr.Add(maxDimension);
                     armSources.Add(source);
                     armCount++;
                     SelctionBox.Items.Add(source.ToString());
                     maxValue = 0;
+                    maxDimension = null;
+                    msgbox.Text = "获取成功";
+                    //Debug.Print(dimenAddr.Count().ToString());
+                }
+            } else {
+                for (int i = 1; i <= seleCount; i++) {
+                    if (armCount >= 3) {
+                        msgbox.Text = "已录入三组机械臂长度信息,请使用清除重新录入";
+                        return;
+                    }
+                    var seleMark = seleMgr.GetSelectedObjectMark(i);
+                    var seleType = seleMgr.GetSelectedObjectType3(i, seleMark);
+                    if (seleType != 14) {
+                        msgbox.Text = $"你选择的不是尺寸，无法获取数值：{seleType}";
+                        continue;
+                    }
+                    var seleDisDimen = (DisplayDimension)seleMgr.GetSelectedObject6(i, seleMark);
+                    var seleDimen = (Dimension)seleDisDimen.GetDimension();
+                    //seleDimen.Value = seleDimen.Value + 2;
+                    dimenAddr.Add(seleDimen);
+                    armSource source = new armSource(seleDimen.Value, seleDimen.GetFeatureOwner().Name, seleDimen.GetNameForSelection());
+                    armSources.Add(source);
+                    armCount++;
+                    SelctionBox.Items.Add(source.ToString());
+                    msgbox.Text = "获取成功";
                 }
             }
         }
-
 
         bool isPartDoc;
         private void ChoosePartDoc(object sender, RoutedEventArgs e) {
@@ -195,6 +226,43 @@ namespace SolidworksProgram {
 
         private void ChooseDimension(object sender, RoutedEventArgs e) {
             isPartDoc = false;
+        }
+
+        double[] comArmLength = new double[3];
+        private void ComfirmClick(object sender, RoutedEventArgs e) {
+            if (swApp == null) {
+                msgbox.Text = "还未连接SW";
+                return;
+            }
+            if (armCount != 3) {
+                msgbox.Text = "你还没选择够三个零件哦";
+                return;
+            }
+            int i = 0;
+            foreach (armSource arm in armSources) {
+                comArmLength[i] = arm.armValue;
+                i++;
+            }
+            //msgbox.Text = $"{comArmLength[0]},{comArmLength[1]},{comArmLength[2]}";
+            OptimizeFunction();
+            msgbox.Text = "优化完成";
+        }
+
+        private void EmptyClick(object sender, RoutedEventArgs e) {
+            armSources.Clear();
+            SelctionBox.Items.Clear();
+            armCount = 0;
+            msgbox.Text = "清除成功啦";
+        }
+
+        private void CorrectClick(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void OptimizeFunction() {
+            for (int i = 0; i < dimenAddr.Count; i++) {
+                dimenAddr[i].Value = armSources[i].armValue + 10;
+            }
         }
     }
 }
