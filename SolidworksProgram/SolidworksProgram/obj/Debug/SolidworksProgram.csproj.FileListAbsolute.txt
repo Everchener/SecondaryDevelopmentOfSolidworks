@@ -23,3 +23,5 @@ D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\obj\Debug\S
 D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\obj\Debug\SolidworksProgram.csproj.CopyComplete
 D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\obj\Debug\SolidworksProgram.exe
 D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\obj\Debug\SolidworksProgram.pdb
+D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\obj\Debug\CorrectWindow.g.cs
+D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\obj\Debug\CorrectWindow.baml

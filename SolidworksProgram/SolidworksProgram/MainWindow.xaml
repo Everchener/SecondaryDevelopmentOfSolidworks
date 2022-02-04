@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SolidworksProgram"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="机械臂优化程序测试版" Height="450" Width="400">
     <StackPanel>
         <GroupBox Header="连接Solidworks" FontSize="10" BorderBrush="Black">
@@ -34,7 +35,7 @@
                         <Button Margin="10" Width="250" Height="40" Click="GetSelectionClick">
                             <TextBlock Text="查看选择所对应数值" FontSize="20"/>
                         </Button>
-                        <ListBox Height="100" Margin="5" x:Name="SelctionBox"/>
+                        <ListBox Height="100" Margin="5" x:Name="SelctionBox" SelectionMode="Single"/>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
