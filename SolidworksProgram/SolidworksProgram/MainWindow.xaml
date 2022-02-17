@@ -46,6 +46,7 @@
                             <Button Grid.Column="1" Content="清空" Height="40" Margin="5" FontSize="20" Click="EmptyClick"/>
                             <Button Grid.Column="2" Content="更正误差" Height="40" Margin="5" FontSize="20" Click="CorrectClick"/>
                         </Grid>
+                        <!--<Button Content="TEST" Height="40" Margin="5" FontSize="20" Click="TESTCLICK"/>-->
                     </StackPanel>
                 </TabItem>
             </TabControl>

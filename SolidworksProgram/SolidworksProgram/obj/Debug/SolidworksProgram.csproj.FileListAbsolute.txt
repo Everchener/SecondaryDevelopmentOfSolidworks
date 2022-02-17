@@ -25,3 +25,8 @@ D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\obj\Debug\S
 D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\obj\Debug\SolidworksProgram.pdb
 D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\obj\Debug\CorrectWindow.g.cs
 D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\obj\Debug\CorrectWindow.baml
+D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\bin\Debug\inherFun.dll
+D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\bin\Debug\MWArray.dll
+D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\bin\Debug\MWArray.xml
+D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\obj\Debug\Interop.MLApp.dll
+D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\obj\Debug\SolidworksProgram.csproj.ResolveComReference.cache

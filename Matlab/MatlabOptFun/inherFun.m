@@ -1,8 +1,8 @@
-clc;clear
+function [outL1,outL2,outL3] = inherFun(inL1,inL2,inL3)
 tic
 format short;
 nPopu = 10;%种群初始个数
-maxIter = 5;%最大迭代次数
+maxIter = 1;%最大迭代次数
 nCrossPoss = 0.8;%交叉概率
 nCross = round(nPopu * nCrossPoss / 2) * 2;%交叉个数
 nMuta = 0.2;%变异概率
@@ -12,7 +12,6 @@ template.len = [];
 template.amt = [];
 
 %到时候这个地方是接收函数输入的地方
-inL1 = 5;inL2 = 2;inL3 = 3;
 inL = [inL1 inL2 inL3];
 sumLen = sum(inL);
 %方向是否可达的检测矩阵（和之后位置矩阵相乘形成位姿）
@@ -58,7 +57,7 @@ Parent(1).amt = optFun(Parent(1).len,Posture,Arr,posLen);
 for i = 2:nPopu
 %     Parent(i).len = randi([sumLen/10,sumLen/2],1,2);%位数太多不利于计算
     %随机生成两个[sumLen/10,sumLen/2]之间的机械臂长
-    Parent(i).len = round((sumLen/10 + 2 * sumLen/5*rand(1,2))*100)/100;
+    Parent(i).len = round((sumLen/10 + sumLen/4*rand(1,2))*100)/100;
     %第三臂为总臂长和两臂之差
     Parent(i).len = [Parent(i).len,sumLen - Parent(i).len(1) - Parent(i).len(2)];
     %符合点的数量
@@ -105,5 +104,7 @@ for iter = 1: maxIter
     %输出
     disp(['次数：',num2str(iter),'最大值',num2str(Parent(1).amt)])
 end
+outL1 = Parent(1).len(1);
+outL2 = Parent(1).len(2);
+outL3 = Parent(1).len(3);
 toc
-Parent(1).len
