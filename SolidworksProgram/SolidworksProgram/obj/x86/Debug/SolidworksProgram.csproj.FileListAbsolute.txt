@@ -31,3 +31,4 @@ D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\obj\x86\Deb
 D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\obj\x86\Debug\SolidworksProgram.exe
 D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\obj\x86\Debug\SolidworksProgram.pdb
 D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\bin\x86\Debug\Interop.MLApp.dll
+D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\obj\x86\Debug\optWaitWin.g.cs

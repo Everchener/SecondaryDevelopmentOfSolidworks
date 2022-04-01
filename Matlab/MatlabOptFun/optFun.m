@@ -5,11 +5,11 @@ Tlen = 14;
 % %建立机器人模型
 %        theta    d        a        alpha     offset
 L1=Link([pi/2     0       0       -pi/2     0     ]); %定义连杆的D-H参数
-L2=Link([-pi/2    inL(1)    0      pi/2        0     ]);
+L2=Link([-pi/2    0 inL(1)         pi/2        0     ]);
 L3=Link([0        0       0       -pi/2     0     ]);
-L4=Link([0        inL(2)   0         pi/2     0     ]);
+L4=Link([0        0 inL(2)            pi/2     0     ]);
 L5=Link([0        0        0        -pi/2     0     ]);
-L6=Link([0        inL(3)       0        0         0     ]);
+L6=Link([0        0 inL(3)              0         0     ]);
 robot=SerialLink([L1 L2 L3 L4 L5 L6]);
     for m = 1:1:posLen
     label = label + 1;

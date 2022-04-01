@@ -1,0 +1,857 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Xarial.XCad.SolidWorks</name>
+    </assembly>
+    <members>
+        <member name="T:Xarial.XCad.SolidWorks.Base.ColorMaskDelegate">
+            <summary>
+            Custom handler for the image replace function
+            </summary>
+            <param name="r">Red component of pixel</param>
+            <param name="g">Green component of pixel</param>
+            <param name="b">Blue component of pixel</param>
+            <param name="a">Alpha component of pixel</param>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Base.IIconSpec">
+            <summary>
+            Descriptor for the icon of a specific type
+            </summary>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.Base.IIconSpec.Name">
+            <summary>
+            Base name of the icon
+            </summary>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.Base.IIconSpec.SourceImage">
+            <summary>
+            Original image of the icon
+            </summary>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.Base.IIconSpec.TargetSize">
+            <summary>
+            Required size of the icon
+            </summary>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.Base.IIconSpec.Mask">
+            <summary>
+            Handler for the mask
+            </summary>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.Base.IIconSpec.Offset">
+            <summary>
+            Image offset
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Base.IconSpec">
+            <inheritdoc/>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.Base.IconSpec.Name">
+            <inheritdoc/>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.Base.IconSpec.SourceImage">
+            <inheritdoc/>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.Base.IconSpec.TargetSize">
+            <inheritdoc/>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.Base.IconSpec.Mask">
+            <inheritdoc/>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.Base.IconSpec.Offset">
+            <inheritdoc/>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Base.IconSpec.#ctor(Xarial.XCad.UI.IXImage,System.Drawing.Size,System.Int32,System.String)">
+            <summary>
+            Icon size constructor with source image, target size and optional base name
+            </summary>
+            <param name="srcImage">Source image</param>
+            <param name="targetSize">Target size of the image</param>
+            <param name="baseName">Base name of the image</param>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Base.IconSpec.CreateFileName(System.String,System.Drawing.Size)">
+            <summary>
+            Generates the file name for the icon
+            </summary>
+            <param name="baseName">Base name for the icon</param>
+            <param name="targetSize">Required icon size</param>
+            <returns>Suggested file name</returns>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Base.IIcon">
+            <summary>
+            Represents the specific icon descriptor
+            </summary>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.Base.IIcon.TransparencyKey">
+            <summary>
+            Transparency key to be applied to transparent color
+            </summary>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Base.IIcon.GetIconSizes">
+            <summary>
+            List of required icon sizes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Data.Helpers.CustomPropertyChangeAction_e">
+            <summary>
+            Type of the modification action on custom properties
+            </summary>
+        </member>
+        <member name="F:Xarial.XCad.SolidWorks.Data.Helpers.CustomPropertyChangeAction_e.Add">
+            <summary>
+            New custom property is added
+            </summary>
+        </member>
+        <member name="F:Xarial.XCad.SolidWorks.Data.Helpers.CustomPropertyChangeAction_e.Delete">
+            <summary>
+            Custom property is removed
+            </summary>
+        </member>
+        <member name="F:Xarial.XCad.SolidWorks.Data.Helpers.CustomPropertyChangeAction_e.Modify">
+            <summary>
+            Custom property value is changed
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Data.Helpers.CustomPropertyModifyData">
+            <summary>
+            Custom Property modification data
+            </summary>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.Data.Helpers.CustomPropertyModifyData.Action">
+            <summary>
+            Type of the modification
+            </summary>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.Data.Helpers.CustomPropertyModifyData.Name">
+            <summary>
+            Name of the custom property
+            </summary>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.Data.Helpers.CustomPropertyModifyData.ConfigurationName">
+            <summary>
+            Configuration of custom property. Empty string for the file specific (generic) custom property
+            </summary>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.Data.Helpers.CustomPropertyModifyData.Value">
+            <summary>
+            Value of the custom property
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Data.Helpers.CustomPropertyModifyDelegate">
+            <summary>
+            Delegate of <see cref="!:DocumentHandler.CustomPropertyModify"/> event
+            </summary>
+            <param name="docHandler">Document Handler which sends this notification</param>
+            <param name="modifications">Array of all modifications in custom properties</param>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Documents.Exceptions.DefaultTemplateNotFoundException">
+            <summary>
+            Indicates that the default templaet cannot be found for the next document
+            </summary>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Documents.Exceptions.DefaultTemplateNotFoundException.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Documents.Exceptions.DirtyFlagIsNotSetException">
+            <summary>
+            Indicates that document cannot be set to dirty
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Documents.Exceptions.DocumentsQueueDispatchException">
+            <summary>
+            Exception indicates that some documents in the queue were not dispatched
+            </summary>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.Documents.Exceptions.DocumentsQueueDispatchException.Errors">
+            <summary>
+            Dispatch errors
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Documents.Exceptions.NewDocumentCreateException">
+            <summary>
+            Exception indicates that new document cannot be created
+            </summary>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Documents.Exceptions.NewDocumentCreateException.#ctor(System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="templateName">Name of the document template</param>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Documents.Services.SwDocumentDispatcher">
+            <summary>
+            This services dispatches the model docs and creates SwDocument objects
+            </summary>
+            <remarks>This service is also responsible to using the objects pre-created templates wheer applicable instead of creating new ones.
+            DocumentLoadNotify2 even is fired async so it is not ensured that it is raised before or after OpenDoc6 or NewDocument APIs. This services is respnsibel for handlign the race conditions</remarks>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.Documents.ISwComponent.CachedPath">
+            <summary>
+            Returns the cached path of the component as stored in SOLIDWORKS
+            </summary>
+            <remarks>This path might not correspond to actual file if component is not resolved or document is opened in view only mode. <see cref="P:Xarial.XCad.Documents.IXComponent.Path"/> will return the resolved path</remarks>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Documents.SwDocumentCollectionExtension">
+            <summary>
+            Additional methods for documents collections
+            </summary>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Documents.SwDocumentCollectionExtension.PreCreateFromPath(Xarial.XCad.SolidWorks.Documents.ISwDocumentCollection,System.String)">
+            <summary>
+            Pre creates new document from path
+            </summary>
+            <param name="docsColl">Documents collection</param>
+            <param name="path"></param>
+            <returns>Pre-created document</returns>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Documents.SwModelView.ZoomToBox(Xarial.XCad.Geometry.Structures.Box3D)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Exceptions.IconTransparencyMismatchException">
+            <summary>
+            Exception indicates that the transparency key <see cref="P:Xarial.XCad.SolidWorks.Base.IIcon.TransparencyKey"/> is different for
+            some icons in the icons group passed to <see cref="!:Utils.IconsConverter.ConvertIconsGroup(Base.IIcon[])"/>
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Exceptions.MacroEntryPointNotFoundException">
+            <summary>
+            Indicates that specified entry point to run the macro is not found
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Exceptions.MacroFileNotFoundException">
+            <summary>
+            Indicates that macro file is not found
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Exceptions.MacroHasNoEntryPointsException">
+            <summary>
+            Indicates that macro contains no entry points
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Exceptions.UnknownMacroRunFailedException">
+            <summary>
+            This error indicates that macro failed to run with unknown reason
+            </summary>
+            <remarks>This error migth indicate that the process now is corrupted</remarks>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Exceptions.UnknownMacroRunFailedException.#ctor(System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="path">Path to the macro</param>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Features.CustomFeature.Attributes.HandlePostRebuildAttribute">
+            <summary>
+            Indicates that <see cref="T:Xarial.XCad.SolidWorks.Features.CustomFeature.SwMacroFeatureDefinition"/> should handle the <see cref="M:Xarial.XCad.SolidWorks.Features.CustomFeature.SwMacroFeatureDefinition.OnPostRebuild(Xarial.XCad.SolidWorks.ISwApplication,Xarial.XCad.SolidWorks.Documents.ISwDocument,Xarial.XCad.SolidWorks.Features.CustomFeature.ISwMacroFeature)"/>
+            </summary>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.Features.CustomFeature.ISwMacroFeature`1.CachedParameters">
+            <summary>
+            Returns parameters without accessing the selection
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Features.CustomFeature.SwMacroFeatureDefinition">
+            <inheritdoc/>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Features.CustomFeature.SwMacroFeatureDefinition.OnPostRebuild(Xarial.XCad.SolidWorks.ISwApplication,Xarial.XCad.SolidWorks.Documents.ISwDocument,Xarial.XCad.SolidWorks.Features.CustomFeature.ISwMacroFeature)">
+            <summary>
+            Called when macro feature is rebuild
+            </summary>
+            <param name="app">Application</param>
+            <param name="model">Document</param>
+            <param name="feature">Feature</param>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Features.CustomFeature.SwMacroFeatureDefinition`1">
+            <inheritdoc/>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Features.CustomFeature.SwMacroFeatureDefinition`1.OnPostRebuild(Xarial.XCad.SolidWorks.ISwApplication,Xarial.XCad.SolidWorks.Documents.ISwDocument,Xarial.XCad.SolidWorks.Features.CustomFeature.ISwMacroFeature{`0},`0)">
+            <summary>
+            Called when macro feature is rebuild
+            </summary>
+            <param name="app">Application</param>
+            <param name="model">Document</param>
+            <param name="feature">Feature</param>
+            <param name="parameters">Parameters</param>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Features.CustomFeature.SwMacroFeatureDefinition`2">
+            <inheritdoc/>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Features.CustomFeature.SwMacroFeatureDefinition`2.OnEditingStarted(Xarial.XCad.IXApplication,Xarial.XCad.Documents.IXDocument,Xarial.XCad.Features.CustomFeature.IXCustomFeature{`0},`0,`1)">
+            <summary>
+            Called when macro feature is about to be edited before Property Manager Page is opened
+            </summary>
+            <param name="app">Application</param>
+            <param name="doc">Document</param>
+            <param name="feat">Feature being edited (null if feature is being inserted)</param>
+            <param name="data">Macro feature data (null if feature is being inserted)</param>
+            <param name="page">Page data</param>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Features.CustomFeature.SwMacroFeatureDefinition`2.OnEditingCompleting(Xarial.XCad.IXApplication,Xarial.XCad.Documents.IXDocument,Xarial.XCad.Features.CustomFeature.IXCustomFeature{`0},`0,`1,Xarial.XCad.UI.PropertyPage.Enums.PageCloseReasons_e)">
+            <summary>
+            Called when macro feature is finishing editing and Property Manager Page is about to be closed
+            </summary>
+            <param name="app">Application</param>
+            <param name="doc">Document</param>
+            <param name="feat">Feature being edited</param>
+            <param name="data">Macro feature data</param>
+            <param name="page">Page data</param>
+            <param name="reason">Closing reason</param>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Features.CustomFeature.SwMacroFeatureDefinition`2.OnEditingCompleted(Xarial.XCad.IXApplication,Xarial.XCad.Documents.IXDocument,Xarial.XCad.Features.CustomFeature.IXCustomFeature{`0},`0,`1,Xarial.XCad.UI.PropertyPage.Enums.PageCloseReasons_e)">
+            <summary>
+            Called when macro feature is finished editing and Property Manager Page is closed
+            </summary>
+            <param name="app">Application</param>
+            <param name="doc">Document</param>
+            <param name="feat">Feature being edited</param>
+            <param name="data">Macro feature data</param>
+            <param name="page">Page data</param>
+            <param name="reason">Closing reason</param>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Features.CustomFeature.SwMacroFeatureDefinition`2.OnFeatureInserted(Xarial.XCad.IXApplication,Xarial.XCad.Documents.IXDocument,Xarial.XCad.Features.CustomFeature.IXCustomFeature{`0},`0,`1)">
+            <summary>
+            Called when macro feature is created
+            </summary>
+            <param name="app">Application</param>
+            <param name="doc">Document</param>
+            <param name="feat">Feature which is created</param>
+            <param name="data">Macro feature data</param>
+            <param name="page">Page data</param>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Features.CustomFeature.SwMacroFeatureDefinition`2.OnPageParametersChanged(Xarial.XCad.IXApplication,Xarial.XCad.Documents.IXDocument,Xarial.XCad.Features.CustomFeature.IXCustomFeature{`0},`1)">
+            <summary>
+            Called when parameters of the property page have been changed
+            </summary>
+            <param name="app">Application</param>
+            <param name="doc">Document</param>
+            <param name="feat">Feature being edited</param>
+            <param name="page">Current page data</param>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Features.CustomFeature.Toolkit.MacroFeatureParametersParser.UpdateParameters(SolidWorks.Interop.sldworks.IMacroFeatureData,System.String[],System.Int32[],System.String[])">
+            <summary>
+            Parameters are not updated when SetParameters is called from OnRebuild method, updating one by one fixes the issue
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Features.CustomFeature.Toolkit.SwDimensionPlaceholder">
+            <summary>
+            This is a mock implementation of display SOLIDWORKS dimension
+            It is used in <see cref="M:Xarial.XCad.Features.CustomFeature.Services.IParameterConverter.ConvertDisplayDimensions(Xarial.XCad.Documents.IXDocument,Xarial.XCad.Features.CustomFeature.IXCustomFeature,Xarial.XCad.Annotations.IXDimension[])"/>
+            for supporting the backward compatibility of macro feature parameters
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Features.SwFeatureManager">
+            <inheritdoc/>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Features.SwFeatureManager.CreateCustomFeature``3">
+            <inheritdoc/>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Geometry.Exceptions.InvalidMassPropertyCalculationException">
+            <summary>
+            Exception indicates that calculation of mass properties has failed
+            </summary>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Geometry.Exceptions.InvalidMassPropertyCalculationException.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Geometry.Exceptions.MassPropertiesHiddenComponentBodiesNotSupported">
+            <summary>
+            IMassProperty API does not support option to specify to include or exclude hidden bodies or components (this option is always default to include hidden)
+            This excepion indicates that mass cannot be calculated for the assembly which has hidden bodies while <see cref="P:Xarial.XCad.Base.IEvaluation.VisibleOnly"/> is set to True
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Geometry.Exceptions.MomentOfInertiaOverridenException">
+            <summary>
+            IMassProperty API in SOLIDOWRKS 2019 failed to correctly calculate the Moment Of Intertia for the components
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Geometry.Exceptions.NotLoadedMassPropertyComponentException">
+            <summary>
+            SOLIDOWORKS API limitation of not-loaded components mass property calculation in SOLIDWORKS 2019 or older
+            </summary>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Geometry.Exceptions.NotLoadedMassPropertyComponentException.#ctor(Xarial.XCad.Documents.IXComponent)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="comp">Component</param>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Geometry.Exceptions.PrincipalAxesOfInertiaOverridenException">
+            <summary>
+            IMassProperty API in SOLIDOWRKS 2019 failed to correctly calculate the Principal Axes Of Inertia for the components
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Geometry.Exceptions.PrincipalMomentOfInertiaOverridenException">
+            <summary>
+            IMassProperty API in SOLIDOWRKS 2019 failed to correctly calculate the Principal Moment Of Intertia for the components
+            </summary>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Geometry.SwLegacyMassProperty.ValidateCalculations(SolidWorks.Interop.sldworks.IMassProperty)">
+            <summary>
+            Sometimes mass cannot be calculated and no error returned (model rebuilding is required)
+            </summary>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Geometry.SwMassProperty.ValidateCalculations(SolidWorks.Interop.sldworks.IMassProperty2)">
+            <summary>
+            Sometimes mass cannot be calculated and no error returned (model rebuilding is required)
+            </summary>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Services.BaseIconsCreator.#ctor(System.String)">
+            <param name="iconsDir">Directory to store the icons</param>
+            <param name="disposeIcons">True to remove the icons when class is disposed</param>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Services.BaseIconsCreator.Dispose">
+            <summary>
+            Disposing temp icon files
+            </summary>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Services.BaseIconsCreator.ReplaceColor(System.Drawing.Image,Xarial.XCad.SolidWorks.Base.ColorMaskDelegate)">
+            <summary>
+            Replaces the pixels in the image based on the custom replacer handler
+            </summary>
+            <param name="icon">Image to replace</param>
+            <param name="mask">Handler to replace which is called for each pixel</param>
+            <returns>Resulting image</returns>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Services.BaseIconsCreator.ConvertIconsGroup(Xarial.XCad.SolidWorks.Base.IIcon[])">
+            <inheritdoc/>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Services.SwFilePathResolverBase">
+            <summary>
+            Resolves the reference path for the document
+            </summary>
+            <remarks>This logic implemented according to <see href="https://help.solidworks.com/2016/english/SolidWorks/sldworks/c_Search_Routine_for_Referenced_Documents.htm"/></remarks>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.SwAddInEx">
+            <inheritdoc/>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.SwAddInEx.RegisterFunction(System.Type)">
+            <summary>
+            COM Registration entry function
+            </summary>
+            <param name="t">Type</param>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.SwAddInEx.UnregisterFunction(System.Type)">
+            <summary>
+            COM Unregistration entry function
+            </summary>
+            <param name="t">Type</param>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.SwAddInEx.AddInId">
+            <summary>
+            Add-ins cookie (id)
+            </summary>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.SwAddInEx.OnCommandClick(System.String)">
+            <summary>
+            Command click callback
+            </summary>
+            <param name="cmdId">Command tag</param>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.SwApplication">
+            <inheritdoc/>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.SwApplication.#ctor(SolidWorks.Interop.sldworks.ISldWorks,System.Action{Xarial.XCad.SolidWorks.SwApplication})">
+            <summary>
+            Only to be used within SwAddInEx
+            </summary>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.SwApplication.#ctor">
+            <summary>
+            Remarks used for <see cref="M:Xarial.XCad.SolidWorks.SwApplicationFactory.PreCreate"/>
+            </summary>
+        </member>
+        <member name="F:Xarial.XCad.SolidWorks.SwApplicationFactory.CommandLineArguments.SafeMode">
+            <summary>
+            Bypasses the Tools/Options settings
+            </summary>
+        </member>
+        <member name="F:Xarial.XCad.SolidWorks.SwApplicationFactory.CommandLineArguments.BackgroundMode">
+            <summary>
+            Runs SOLIDWORKS in background model via SOLIDWORKS Task Scheduler (requires SOLIDWORKS Professional or higher)
+            </summary>
+        </member>
+        <member name="F:Xarial.XCad.SolidWorks.SwApplicationFactory.CommandLineArguments.SilentMode">
+            <summary>
+            Suppresses all popup messages, including the splash screen
+            </summary>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.SwApplicationFactory.Create(System.Nullable{Xarial.XCad.SolidWorks.Enums.SwVersion_e},Xarial.XCad.Enums.ApplicationState_e,System.Nullable{System.Threading.CancellationToken})">
+            <summary>
+            Starts new application
+            </summary>
+            <param name="vers">Version or null for the latest</param>
+            <param name="state">State of the application</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>Created application</returns>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.ISwObject">
+            <summary>
+            Represents base interface for all SOLIDWORKS objects
+            </summary>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.ISwObject.Dispatch">
+            <summary>
+            SOLIDWORKS specific dispatch
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.SwObject">
+            <inheritdoc/>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.SwObjectFactory">
+            <summary>
+            Factory for xCAD objects
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.SwSelObject">
+            <inheritdoc/>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.UI.Commands.Exceptions.GroupIdAlreadyExistsException">
+            <summary>
+            Exception indicates that specified group user id is already used
+            </summary>
+            <remarks>This might happen when <see cref="T:Xarial.XCad.UI.Commands.Attributes.CommandGroupInfoAttribute"/> explicitly specifies duplicate user ids.
+            This can also happen that not all commands have this attribute assigned explicitly.
+            In this case framework is attempting to generate next user id which might be already taken by explicit declaration</remarks>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.UI.Commands.Exceptions.InvalidMenuToolbarOptionsException">
+            <summary>
+            Indicates that the command doesn't have either menu or toolbar option set
+            </summary>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.UI.Commands.ISwCommandGroup.IsContextMenu">
+            <summary>
+            Indicates if this group is context menu
+            </summary>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.UI.Commands.ISwCommandGroup.CommandGroup">
+            <summary>
+            SOLIDWORKS specific command group
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.UI.Commands.SwCommandGroup">
+            <inheritdoc/>
+        </member>
+        <member name="E:Xarial.XCad.SolidWorks.UI.Commands.SwCommandGroup.CommandClick">
+            <inheritdoc/>
+        </member>
+        <member name="E:Xarial.XCad.SolidWorks.UI.Commands.SwCommandGroup.CommandStateResolve">
+            <inheritdoc/>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.UI.Commands.SwCommandGroup.CommandGroup">
+            <inheritdoc/>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.UI.Commands.SwCommandGroup.Spec">
+            <inheritdoc/>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.UI.Commands.ISwCommandManager.CmdMgr">
+            <summary>
+            Pointer to command group which holding the add-in commands
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.UI.Commands.SwCommandManager">
+            <inheritdoc/>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.UI.Commands.SwCommandManager.CmdMgr">
+            <inheritdoc/>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.UI.Commands.Toolkit.Enums.CommandItemEnableState_e">
+            <summary>
+            Enumerates the possible states of the command (toolbar button or menu item) in SOLIDWORKS
+            </summary>
+        </member>
+        <member name="F:Xarial.XCad.SolidWorks.UI.Commands.Toolkit.Enums.CommandItemEnableState_e.DeselectDisable">
+            <summary>
+            Deselects and disables the item
+            </summary>
+        </member>
+        <member name="F:Xarial.XCad.SolidWorks.UI.Commands.Toolkit.Enums.CommandItemEnableState_e.DeselectEnable">
+            <summary>
+            Deselects and enables the item; this is the default state if no update function is specified
+            </summary>
+        </member>
+        <member name="F:Xarial.XCad.SolidWorks.UI.Commands.Toolkit.Enums.CommandItemEnableState_e.SelectDisable">
+            <summary>
+            Selects and disables the item
+            </summary>
+        </member>
+        <member name="F:Xarial.XCad.SolidWorks.UI.Commands.Toolkit.Enums.CommandItemEnableState_e.SelectEnable">
+            <summary>
+            Selects and enables the item
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.UI.PropertyPage.SwPropertyManagerPage`1">
+            <inheritdoc/>
+        </member>
+        <member name="E:Xarial.XCad.SolidWorks.UI.PropertyPage.SwPropertyManagerPage`1.Closed">
+            <inheritdoc/>
+        </member>
+        <member name="E:Xarial.XCad.SolidWorks.UI.PropertyPage.SwPropertyManagerPage`1.Closing">
+            <inheritdoc/>
+        </member>
+        <member name="E:Xarial.XCad.SolidWorks.UI.PropertyPage.SwPropertyManagerPage`1.DataChanged">
+            <inheritdoc/>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.UI.PropertyPage.SwPropertyManagerPage`1.Controls">
+            <inheritdoc/>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.UI.PropertyPage.SwPropertyManagerPage`1.Model">
+            <inheritdoc/>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.UI.PropertyPage.SwPropertyManagerPage`1.#ctor(Xarial.XCad.SolidWorks.ISwApplication,System.IServiceProvider,Xarial.XCad.SolidWorks.UI.PropertyPage.SwPropertyManagerPageHandler,Xarial.XCad.UI.PropertyPage.Delegates.CreateDynamicControlsDelegate)">
+            <summary>Creates instance of property manager page</summary>
+            <param name="app">Pointer to session of SOLIDWORKS where the property manager page to be created</param>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.UI.PropertyPage.SwPropertyManagerPage`1.Show(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.UI.PropertyPage.SwPropertyManagerPageHandler">
+            <summary>
+            Class which represents the handler of macro feature (system use only)
+            </summary>
+            <remarks>Class must be COM Visible, public and have parameterless constructor</remarks>
+        </member>
+        <member name="E:Xarial.XCad.SolidWorks.UI.PropertyPage.SwPropertyManagerPageHandler.Closing">
+            <inheritdoc/>
+        </member>
+        <member name="E:Xarial.XCad.SolidWorks.UI.PropertyPage.SwPropertyManagerPageHandler.Closed">
+            <inheritdoc/>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.UI.PropertyPage.Toolkit.Controls.IPropertyManagerPageControlEx">
+            <summary>
+            Base wrapper around native SOLIDWORKS Property Manager Page controls (i.e. TextBox, SelectionBox, NumberBox etc.)
+            </summary>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.UI.PropertyPage.Toolkit.Controls.IPropertyManagerPageControlEx.SwControl">
+            <summary>
+            Pointer to the native SOLIDWORKS control of type <see href="http://help.solidworks.com/2012/english/api/sldworksapi/solidworks.interop.sldworks~solidworks.interop.sldworks.ipropertymanagerpagecontrol.html"/>
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.UI.PropertyPage.Toolkit.Controls.IPropertyManagerPageElementEx">
+            <summary>
+            Represents the base interface for elements in property manager page (e.g. controls, groups, tabs)
+            </summary>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.UI.PropertyPage.Toolkit.Controls.IPropertyManagerPageElementEx.Enabled">
+            <summary>
+            Enable state of this control
+            </summary>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.UI.PropertyPage.Toolkit.Controls.IPropertyManagerPageElementEx.Visible">
+            <summary>
+            Visibility state of the control
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.UI.PropertyPage.Toolkit.Controls.PropertyManagerPageElement">
+            <summary>
+            List of extension methods of property manager page element
+            </summary>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.UI.PropertyPage.Toolkit.Controls.PropertyManagerPageElement.GetValue``1(Xarial.XCad.SolidWorks.UI.PropertyPage.Toolkit.Controls.IPropertyManagerPageElementEx)">
+            <summary>
+            Gets the value from the property manager page element
+            </summary>
+            <typeparam name="T">Type of the control value</typeparam>
+            <param name="elem">Property Manager Page element</param>
+            <returns>Value extracted from the control</returns>
+            <exception cref="T:System.InvalidCastException"/>
+            <exception cref="T:System.NotSupportedException"/>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.UI.PropertyPage.Toolkit.Controls.PropertyManagerPageElement.GetSwControl``1(Xarial.XCad.SolidWorks.UI.PropertyPage.Toolkit.Controls.IPropertyManagerPageElementEx)">
+            <summary>
+            Gets the underlying SOLIDWORKS Property Manager Page control
+            </summary>
+            <typeparam name="T">Type of control to return</typeparam>
+            <param name="elem">Property Manager Page element</param>
+            <returns>Underlying control in the Property Manager Page</returns>
+            <exception cref="T:System.InvalidCastException"/>
+            <exception cref="T:System.NotSupportedException"/>
+            <remarks>For controls specify <see href="http://help.solidworks.com/2017/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IPropertyManagerPageControl.html">IPropertyManagerPageControl</see> as a generic parameter to return base interface for control.
+            You can also specify specific interfaces (e.g.  <see href="https://help.solidworks.com/2017/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IPropertyManagerPageNumberbox.html">IPropertyManagerPageNumberbox</see> or <see href="https://help.solidworks.com/2017/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IPropertyManagerPageTextbox.html">IPropertyManagerPageTextbox</see>.
+            For groups specify <see href="http://help.solidworks.com/2017/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IPropertyManagerPageGroup.html">IPropertyManagerPageGroup</see>.
+            For tabs specify <see href="http://help.solidworks.com/2017/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IPropertyManagerPageTab.html">IPropertyManagerPageTab</see>
+            </remarks>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.UI.PropertyPage.Toolkit.Controls.IPropertyManagerPageGroupEx">
+            <summary>
+            Represents the group box control
+            </summary>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.UI.PropertyPage.Toolkit.Controls.IPropertyManagerPageGroupEx.Group">
+            <summary>
+            Pointer to the underlying group box
+            </summary>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.UI.PropertyPage.Toolkit.Controls.PropertyManagerPageGroupControl.Enabled">
+            <summary>
+            Not supported
+            </summary>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.UI.PropertyPage.Toolkit.Controls.PropertyManagerPageGroupControl.Visible">
+            <inheritdoc/>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.UI.PropertyPage.Toolkit.Controls.PropertyManagerPageOptionBox">
+            <summary>
+            Wrapper class around the group of <see href="http://help.solidworks.com/2016/english/api/sldworksapi/solidworks.interop.sldworks~solidworks.interop.sldworks.ipropertymanagerpageoption.html">IPropertyManagerPageOption </see> controls
+            </summary>
+            <remarks>All set properties will be applied to all controls in the group, while get will return the value of first control</remarks>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.UI.PropertyPage.Toolkit.Controls.PropertyManagerPageOptionBox.Controls">
+            <summary>
+            Array of controls in the current option group
+            </summary>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.UI.PropertyPage.Toolkit.Controls.PropertyManagerPageTabControl.Enabled">
+            <summary>
+            Not supported
+            </summary>
+        </member>
+        <member name="P:Xarial.XCad.SolidWorks.UI.PropertyPage.Toolkit.Controls.PropertyManagerPageTabControl.Visible">
+            <summary>
+            Not supported
+            </summary>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.UI.PropertyPage.Toolkit.Icons.BitmapButtonHighResIcon.AdjustSize(System.Int32,System.Int32)">
+            <summary>
+            Adjusting the size of the icons to match older version of SOLIDWORKS, so if add-in is updated from 2016 - the size of buttons remains the same
+            </summary>
+        </member>
+        <member name="F:Xarial.XCad.SolidWorks.UI.WinAPI.RedrawWindowFlags.Invalidate">
+            <summary>
+            Invalidates the rectangle or region that you specify in lprcUpdate or hrgnUpdate.
+            You can set only one of these parameters to a non-NULL value. If both are NULL, RDW_INVALIDATE invalidates the entire window.
+            </summary>
+        </member>
+        <member name="F:Xarial.XCad.SolidWorks.UI.WinAPI.RedrawWindowFlags.InternalPaint">
+            <summary>Causes the OS to post a WM_PAINT message to the window regardless of whether a portion of the window is invalid.</summary>
+        </member>
+        <member name="F:Xarial.XCad.SolidWorks.UI.WinAPI.RedrawWindowFlags.Erase">
+            <summary>
+            Causes the window to receive a WM_ERASEBKGND message when the window is repainted.
+            Specify this value in combination with the RDW_INVALIDATE value; otherwise, RDW_ERASE has no effect.
+            </summary>
+        </member>
+        <member name="F:Xarial.XCad.SolidWorks.UI.WinAPI.RedrawWindowFlags.Validate">
+            <summary>
+            Validates the rectangle or region that you specify in lprcUpdate or hrgnUpdate.
+            You can set only one of these parameters to a non-NULL value. If both are NULL, RDW_VALIDATE validates the entire window.
+            This value does not affect internal WM_PAINT messages.
+            </summary>
+        </member>
+        <member name="F:Xarial.XCad.SolidWorks.UI.WinAPI.RedrawWindowFlags.NoErase">
+            <summary>Suppresses any pending WM_ERASEBKGND messages.</summary>
+        </member>
+        <member name="F:Xarial.XCad.SolidWorks.UI.WinAPI.RedrawWindowFlags.NoChildren">
+            <summary>Excludes child windows, if any, from the repainting operation.</summary>
+        </member>
+        <member name="F:Xarial.XCad.SolidWorks.UI.WinAPI.RedrawWindowFlags.AllChildren">
+            <summary>Includes child windows, if any, in the repainting operation.</summary>
+        </member>
+        <member name="F:Xarial.XCad.SolidWorks.UI.WinAPI.RedrawWindowFlags.UpdateNow">
+            <summary>Causes the affected windows, which you specify by setting the RDW_ALLCHILDREN and RDW_NOCHILDREN values, to receive WM_ERASEBKGND and WM_PAINT messages before the RedrawWindow returns, if necessary.</summary>
+        </member>
+        <member name="F:Xarial.XCad.SolidWorks.UI.WinAPI.RedrawWindowFlags.EraseNow">
+            <summary>
+            Causes the affected windows, which you specify by setting the RDW_ALLCHILDREN and RDW_NOCHILDREN values, to receive WM_ERASEBKGND messages before RedrawWindow returns, if necessary.
+            The affected windows receive WM_PAINT messages at the ordinary time.
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.UI.Toolkit.IAutoDisposable">
+            <summary>
+            Indicates that this item will be disposed when main add-in is unloaded
+            </summary>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Utils.CompatibilityUtils.GetVersion(SolidWorks.Interop.sldworks.ISldWorks,System.Int32@,System.Int32@)">
+            <summary>
+            Returns the major version of SOLIDWORKS application
+            </summary>
+            <param name="app">Pointer to application to return version from</param>
+            <param name="servicePack">Version of Service Pack</param>
+            <param name="servicePackRev">Revision of Service Pack</param>
+            <returns>Major version of the application</returns>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Utils.CompatibilityUtils.GetVersion(SolidWorks.Interop.sldworks.ISldWorks)">
+            <inheritdoc cref="M:Xarial.XCad.SolidWorks.Utils.CompatibilityUtils.GetVersion(SolidWorks.Interop.sldworks.ISldWorks,System.Int32@,System.Int32@)"/>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Utils.CompatibilityUtils.IsVersionNewerOrEqual(SolidWorks.Interop.sldworks.ISldWorks,Xarial.XCad.SolidWorks.Enums.SwVersion_e,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Checks if the version of the SOLIDWORKS is newer or equal to the specified parameters
+            </summary>
+            <param name="app">Current SOLIDWORKS application</param>
+            <param name="version">Target minimum supported version of SOLIDWORKS</param>
+            <param name="servicePack">Target minimum service pack version or null to ignore</param>
+            <param name="servicePackRev">Target minimum revision of service pack version or null to ignore</param>
+            <returns>True of version of the SOLIDWORKS is the same or newer</returns>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Utils.LegacyComponentMassProperty">
+            <summary>
+            Component specific mass property information
+            </summary>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Utils.LegacyComponentMassPropertyLazy">
+            <summary>
+            Helper class to retrieve the IMassProperty for the specific component's model for workarounds purposes
+            </summary>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Utils.SelectionGroup.Add(System.Object,SolidWorks.Interop.sldworks.ISelectData)">
+            <summary>
+            Add object to current selection list
+            </summary>
+            <param name="disp">Pointer to dispatch</param>
+            <param name="selData">Optional selection data</param>
+            <returns>Result of selection</returns>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Utils.SelectionGroup.AddRange(System.Object[],SolidWorks.Interop.sldworks.ISelectData)">
+            <summary>
+            Adds multiple objects into selection list
+            </summary>
+            <param name="disps">Array of dispatches to select</param>
+            <param name="selData">Optional selection data</param>
+            <returns>Result of the selection</returns>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Utils.TransformConverter">
+            <summary>
+            Utility to transform <see cref="T:Xarial.XCad.Geometry.Structures.TransformMatrix"/> and <see cref="T:SolidWorks.Interop.sldworks.IMathTransform"/>
+            </summary>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Utils.TransformConverter.ToTransformMatrix(SolidWorks.Interop.sldworks.IMathTransform)">
+            <summary>
+            Transforms SOLIDWORKS matrix to xCAD matrix
+            </summary>
+            <param name="transform">Matrix to transform</param>
+            <returns>Transformed matrix</returns>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Utils.TransformConverter.ToTransformMatrix(System.Double[])">
+            <summary>
+            Transforms data from SOLIDWORKS matrix <see cref="P:SolidWorks.Interop.sldworks.IMathTransform.ArrayData"/> to xCAD matrix
+            </summary>
+            <param name="data">Data tro transform</param>
+            <returns>Transformed matrix</returns>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Utils.TransformConverter.ToMathTransform(SolidWorks.Interop.sldworks.IMathUtility,Xarial.XCad.Geometry.Structures.TransformMatrix)">
+            <summary>
+            Transforms xCAD matrix to SOLIDWORKS transform
+            </summary>
+            <param name="mathUtils">SOLIDWORKS math utility</param>
+            <param name="matrix">Matrix to transform</param>
+            <returns>SOLIDWORKS transform</returns>
+        </member>
+        <member name="M:Xarial.XCad.SolidWorks.Utils.TransformConverter.ToMathTransformData(Xarial.XCad.Geometry.Structures.TransformMatrix)">
+            <summary>
+            Transforms xCAD matrix to SOLIDWORKS transform data <see cref="P:SolidWorks.Interop.sldworks.IMathTransform.ArrayData"/>
+            </summary>
+            <param name="matrix">Matrix to transform</param>
+            <returns>SOLIDWORKS transform data</returns>
+        </member>
+        <member name="T:Xarial.XCad.SolidWorks.Utils.WpfControlKeystrokePropagator">
+            <summary>
+            Fixes the blocked keystrokes in WPF controls
+            </summary>
+            <remarks>WPF controls hosted in SOLIDWORKS will not handle keystrokes. This class fixes this issue</remarks>
+        </member>
+    </members>
+</doc>

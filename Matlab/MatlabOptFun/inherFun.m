@@ -1,8 +1,9 @@
-function [outL1,outL2,outL3] = inherFun(inL1,inL2,inL3)
+% function [outL1,outL2,outL3] = inherFun(inL1,inL2,inL3)
+inL1 = 5,inL2 = 4,inL3 = 1;
 tic
 format short;
 nPopu = 10;%种群初始个数
-maxIter = 1;%最大迭代次数
+maxIter = 5;%最大迭代次数
 nCrossPoss = 0.8;%交叉概率
 nCross = round(nPopu * nCrossPoss / 2) * 2;%交叉个数
 nMuta = 0.2;%变异概率

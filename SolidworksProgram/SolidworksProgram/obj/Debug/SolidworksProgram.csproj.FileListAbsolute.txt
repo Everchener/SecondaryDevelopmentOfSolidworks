@@ -30,3 +30,7 @@ D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\bin\Debug\M
 D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\bin\Debug\MWArray.xml
 D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\obj\Debug\Interop.MLApp.dll
 D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\obj\Debug\SolidworksProgram.csproj.ResolveComReference.cache
+D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\bin\Debug\TestFun.dll
+D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\bin\Debug\Interop.MLApp.dll
+D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\obj\Debug\optWaitWin.g.cs
+D:\Workspace\Code\SolidworksCode\SolidworksProgram\SolidworksProgram\obj\Debug\optWaitWin.baml
